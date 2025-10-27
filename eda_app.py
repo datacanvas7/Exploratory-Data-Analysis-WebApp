@@ -13,15 +13,15 @@ choice = st.sidebar.selectbox("Menu", menu)
 
 # HOME PAGE
 if choice == "Home":
-    st.header("**Automated Exploratory Data Analysis (EDA)**")
+        st.header("**Automated Exploratory Data Analysis (EDA)**")
 
-    st.markdown('''
-    __This EDA webapp has been created in Python by [Yawar Ali](https://github.com/datacanvas7/).__
+        st.markdown('''
+        __This EDA webapp has been created in Python by [Yawar Ali](https://github.com/datacanvas7/).__
 
-    *Libraries used: Streamlit, Pandas, and YData-Profiling*
+        *Libraries used: Streamlit, Pandas, and YData-Profiling*
     ''')
 
-    st.subheader("Exploratory Data Analysis (EDA)")
+         st.subheader("Exploratory Data Analysis (EDA)")
 
     st.markdown('''
     **Exploratory data analysis (EDA)** is a crucial step in the data analysis process that involves 
@@ -32,33 +32,30 @@ if choice == "Home":
     - Identify potential issues with the data  
     - Formulate hypotheses  
     - Make informed decisions about further analysis steps  
-    
 
-    **Common EDA Techniques:**
-    
-    - Data visualization: histograms, scatter plots, box plots, and heatmaps  
-    
-    - Descriptive statistics: mean, median, std. deviation, correlation  
-    
-    - Data transformation: normalization, scaling, standardization  
-    
-    - Data cleaning: handling missing data, outliers, and inconsistencies  
+    ---
 
+    ### 🔍 **Some of the key methods used in EDA include:**
 
-    **Use Cases:**
-    
-    - Understanding variable distributions  
-    
-    - Identifying relationships between features  
-    
-    - Detecting anomalies or outliers  
-    
-    - Testing assumptions about the data  
-    
-    - Ensuring data quality for modeling  
+    - **Data visualization techniques** such as histograms, scatter plots, box plots, and heatmaps  
+    - **Descriptive statistics** such as mean, median, standard deviation, and correlation coefficients  
+    - **Data transformation techniques** such as normalization, scaling, and standardization  
+    - **Data cleaning techniques** such as handling missing data, outlier detection, and data imputation  
 
+    ---
 
-    Overall, EDA is a critical step in the data analysis process that helps analysts gain insights into their data, identify potential issues, and make informed decisions about subsequent analysis steps.
+    ### 📊 **Some common use cases for EDA include:**
+
+    - Exploring the distribution of variables in the data to identify trends and patterns  
+    - Identifying relationships between variables to understand how they are related  
+    - Detecting anomalies or outliers in the data that may need further investigation  
+    - Checking assumptions about the data and testing hypotheses  
+    - Identifying potential issues with the data such as missing values, incorrect values, or inconsistencies  
+
+    ---
+
+    **Overall, EDA is a critical step in the data analysis process that helps analysts gain insights, 
+    identify potential issues, and make informed decisions about subsequent analysis steps.**
     ''')
 
 # EXPLORE DATASET PAGE
@@ -115,4 +112,5 @@ elif choice == "Explore Dataset":
         st.header("**Profiling Report**")
         profile = ProfileReport(df, title="Profiling Report", explorative=True)
         html(profile.to_html(), height=1000, scrolling=True)
+
 
