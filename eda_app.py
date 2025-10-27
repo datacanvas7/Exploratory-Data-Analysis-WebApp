@@ -32,21 +32,33 @@ if choice == "Home":
     - Identify potential issues with the data  
     - Formulate hypotheses  
     - Make informed decisions about further analysis steps  
+    
 
     **Common EDA Techniques:**
+    
     - Data visualization: histograms, scatter plots, box plots, and heatmaps  
+    
     - Descriptive statistics: mean, median, std. deviation, correlation  
+    
     - Data transformation: normalization, scaling, standardization  
+    
     - Data cleaning: handling missing data, outliers, and inconsistencies  
 
+
     **Use Cases:**
+    
     - Understanding variable distributions  
+    
     - Identifying relationships between features  
+    
     - Detecting anomalies or outliers  
+    
     - Testing assumptions about the data  
+    
     - Ensuring data quality for modeling  
 
-    Overall, EDA is a **foundation** for all reliable data analysis and machine learning workflows.
+
+    Overall, EDA is a critical step in the data analysis process that helps analysts gain insights into their data, identify potential issues, and make informed decisions about subsequent analysis steps.
     ''')
 
 # EXPLORE DATASET PAGE
@@ -103,3 +115,4 @@ elif choice == "Explore Dataset":
         st.header("**Profiling Report**")
         profile = ProfileReport(df, title="Profiling Report", explorative=True)
         html(profile.to_html(), height=1000, scrolling=True)
+
