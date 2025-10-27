@@ -13,15 +13,22 @@ choice = st.sidebar.selectbox("Menu", menu)
 
 # HOME PAGE
 if choice == "Home":
-        st.header("**Automated Exploratory Data Analysis (EDA)**")
+    st.markdown(
+        """
+        <div style='text-align: center;'>
+        """,
+        unsafe_allow_html=True
+    )
 
-        st.markdown('''
-        __This EDA webapp has been created in Python by [Yawar Ali](https://github.com/datacanvas7/).__
+    st.header("**Automated Exploratory Data Analysis (EDA)**")
 
-        *Libraries used: Streamlit, Pandas, and YData-Profiling*
+    st.markdown('''
+    __This EDA webapp has been created in Python by [Yawar Ali](https://github.com/datacanvas7/).__
+
+    *Libraries used: Streamlit, Pandas, and YData-Profiling*
     ''')
 
-         st.subheader("Exploratory Data Analysis (EDA)")
+    st.subheader("Exploratory Data Analysis (EDA)")
 
     st.markdown('''
     **Exploratory data analysis (EDA)** is a crucial step in the data analysis process that involves 
@@ -57,6 +64,8 @@ if choice == "Home":
     **Overall, EDA is a critical step in the data analysis process that helps analysts gain insights, 
     identify potential issues, and make informed decisions about subsequent analysis steps.**
     ''')
+
+    st.markdown("</div>", unsafe_allow_html=True)
 
 # EXPLORE DATASET PAGE
 elif choice == "Explore Dataset":
@@ -112,5 +121,3 @@ elif choice == "Explore Dataset":
         st.header("**Profiling Report**")
         profile = ProfileReport(df, title="Profiling Report", explorative=True)
         html(profile.to_html(), height=1000, scrolling=True)
-
-
