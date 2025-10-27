@@ -11,7 +11,9 @@ st.set_page_config(page_title="EDA Web App", layout="wide")
 menu = ["Home", "Explore Dataset"]
 choice = st.sidebar.selectbox("Menu", menu)
 
+# ======================================================
 # HOME PAGE
+# ======================================================
 if choice == "Home":
     st.markdown(
         """
@@ -67,19 +69,19 @@ if choice == "Home":
 
     st.markdown("</div>", unsafe_allow_html=True)
 
+# ======================================================
 # EXPLORE DATASET PAGE
+# ======================================================
 elif choice == "Explore Dataset":
     st.title("**Explore Your Dataset**")
-    st.markdown("Upload your dataset to generate an automated EDA report using **YData-Profiling**.")
+    st.markdown("Upload your dataset below to generate an automated EDA report using **YData-Profiling**.")
+    st.write("---")
 
-    # Sidebar - Upload file
-    with st.sidebar.header("1. Upload your dataset (.csv or .xlsx)"):
-        uploaded_file = st.sidebar.file_uploader("Upload your file", type=["csv", "xlsx"])
-        st.sidebar.markdown("[Example CSV input file](https://raw.githubusercontent.com/dataprofessor/data/master/delaney_solubility_with_descriptors.csv)")
+    # Upload section (now in main area, not sidebar)
+    uploaded_file = st.file_uploader("📂 Upload your file (CSV or Excel)", type=["csv", "xlsx"])
+    st.markdown("[Example CSV file](https://raw.githubusercontent.com/dataprofessor/data/master/delaney_solubility_with_descriptors.csv)")
 
-    # If user uploads a file
     if uploaded_file is not None:
-
         @st.cache_data
         def load_file(file):
             if file.name.endswith(".csv"):
@@ -102,9 +104,7 @@ elif choice == "Explore Dataset":
         else:
             st.error("Unsupported file format.")
 
-    # If no file uploaded, use a sample dataset
     elif st.button("Use Example Dataset"):
-
         @st.cache_data
         def load_example():
             return pd.DataFrame(
